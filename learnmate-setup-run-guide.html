@@ -1,0 +1,181 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LearnMate Setup Guide</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1f2328;background:#fff;padding:32px 16px 48px}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:26px;font-weight:700;color:#be185d;margin-bottom:4px}
+.subtitle{color:#6b7280;font-size:13.5px;margin-bottom:32px}
+h2{font-size:16px;font-weight:700;color:#1f2328;margin:28px 0 10px;border-bottom:2px solid #fbc8db;padding-bottom:6px}
+h3{font-size:13.5px;font-weight:700;color:#be185d;margin:14px 0 6px}
+p{color:#374151;font-size:13.5px;margin-bottom:8px}
+pre{background:#1e1e2e;color:#cdd6f4;border-radius:10px;padding:16px 18px;font-size:13px;overflow-x:auto;margin-bottom:14px;line-height:1.7}
+code{font-family:"Cascadia Code","Fira Code",monospace}
+.badge{display:inline-block;background:#ffe4ef;color:#be185d;border-radius:20px;padding:2px 10px;font-size:11.5px;font-weight:700;margin-right:6px}
+.badge-blue{background:#dbeafe;color:#1d4ed8}
+.badge-green{background:#d1fae5;color:#065f46}
+.badge-yellow{background:#fef9c3;color:#854d0e}
+.file-tree{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px 20px;font-family:monospace;font-size:13px;line-height:1.9;color:#374151;margin-bottom:14px}
+.file-tree .dir{color:#be185d;font-weight:700}
+.file-tree .file{color:#374151}
+.step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.step-num{background:#ec4899;color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px}
+.step-text{font-size:13.5px;color:#374151}
+.env-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px}
+.env-table th{background:#fce7f3;color:#be185d;padding:8px 12px;text-align:left;font-weight:700;border:1px solid #fbc8db}
+.env-table td{padding:8px 12px;border:1px solid #e5e7eb;vertical-align:top}
+.env-table td:first-child{font-family:monospace;color:#db2777;font-weight:600}
+.env-table td:last-child{color:#6b7280}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.flow-step{background:#fff0f5;border:2px solid #fbc8db;border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600;color:#be185d}
+.flow-arrow{color:#f472b6;font-size:18px;font-weight:700}
+.note{background:#fef9c3;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:#78350f;margin-bottom:14px}
+.tip{background:#d1fae5;border-left:3px solid #10b981;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:#065f46;margin-bottom:14px}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid #e5e7eb;text-align:center;color:#9ca3af;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>🎓 LearnMate</h1>
+  <p class="subtitle">AI Career Learning Pathway Coach — Setup &amp; Run Guide</p>
+
+  
+  <h2>App Flow</h2>
+  <div class="flow">
+    <div class="flow-step">📧 Email Login</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">📊 Dashboard</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">🤖 IBM watsonx.ai</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">🗺 Roadmap</div>
+  </div>
+
+  
+  <h2>Project Structure</h2>
+  <div class="file-tree">
+<span class="dir">simplest/</span>
+├── <span class="dir">backend/</span>
+│   ├── <span class="file">app.py</span>             ← Flask REST API
+│   ├── <span class="file">watson_service.py</span>  ← IBM watsonx.ai client
+│   ├── <span class="file">requirements.txt</span>   ← Python dependencies
+│   └── <span class="file">.env</span>               ← API keys (fill in)
+└── <span class="dir">frontend/</span>
+    └── <span class="dir">src/</span>
+        ├── <span class="file">App.js</span>          ← Routes
+        ├── <span class="file">Login.jsx</span>       ← Email login page
+        ├── <span class="file">Dashboard.jsx</span>   ← Career info form
+        ├── <span class="file">Roadmap.jsx</span>     ← AI roadmap display
+        ├── <span class="file">api.js</span>          ← Axios config
+        └── <span class="file">index.css</span>       ← Pink theme styles
+  </div>
+
+  
+  <h2>Step 1 — IBM watsonx.ai Setup</h2>
+  <div class="step"><div class="step-num">1</div><div class="step-text">Go to <strong>cloud.ibm.com</strong> → Create a free IBM Cloud account</div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-text">Search for <strong>watsonx.ai Runtime</strong> → Create a Lite instance (free tier)</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-text">Go to <strong>Manage → Access (IAM) → API Keys</strong> → Create an API key → Copy it</div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-text">Open <strong>watsonx.ai Studio</strong> → Create a project → Copy the <strong>Project ID</strong> from project settings</div></div>
+  <div class="step"><div class="step-num">5</div><div class="step-text">Paste both values into <code>backend/.env</code> (see table below)</div></div>
+
+  <h3>backend/.env — Fill in your values</h3>
+  <table class="env-table">
+    <tr><th>Key</th><th>Where to get it</th></tr>
+    <tr><td>IBM_WATSONX_API_KEY</td><td>IBM Cloud → Manage → IAM → API Keys</td></tr>
+    <tr><td>IBM_WATSONX_PROJECT_ID</td><td>watsonx.ai Studio → Project → Manage → General → Project ID</td></tr>
+    <tr><td>IBM_WATSONX_URL</td><td>Keep default: <code>https://us-south.ml.cloud.ibm.com</code></td></tr>
+    <tr><td>IBM_MODEL_ID</td><td>Keep default: <code>ibm/granite-13b-chat-v2</code> or use <code>meta-llama/llama-3-70b-instruct</code></td></tr>
+  </table>
+
+  <div class="note">⚠️ Never commit <code>.env</code> to Git. It is already in <code>.gitignore</code>.</div>
+
+  
+  <h2>Step 2 — Backend (Flask)</h2>
+  <h3>Install</h3>
+  <pre><code># Open terminal in the backend/ folder
+cd backend
+
+# Create virtual environment
+python -m venv venv
+
+# Activate (Windows PowerShell)
+.\venv\Scripts\Activate.ps1
+
+# Activate (Mac / Linux)
+# source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt</code></pre>
+
+  <h3>Run</h3>
+  <pre><code>python app.py
+# → Running on http://127.0.0.1:5000</code></pre>
+
+  <div class="tip">✅ Test it: open <strong>http://localhost:5000/api/health</strong> — you should see <code>{"status":"ok"}</code></div>
+
+  
+  <h2>Step 3 — Frontend (React)</h2>
+  <h3>Install</h3>
+  <pre><code># Open a NEW terminal in the frontend/ folder
+cd frontend
+
+# Dependencies already installed during scaffolding
+# If needed:
+npm install</code></pre>
+
+  <h3>Run</h3>
+  <pre><code>npm start
+# → Opens http://localhost:3000</code></pre>
+
+  
+  <h2>Quick Start (Both Servers)</h2>
+  <pre><code># Terminal 1 — Backend
+cd backend
+.\venv\Scripts\Activate.ps1
+python app.py
+
+# Terminal 2 — Frontend
+cd frontend
+npm start</code></pre>
+
+  
+  <h2>API Reference</h2>
+  <table class="env-table">
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+    <tr><td>GET</td><td>/api/health</td><td>Health check</td></tr>
+    <tr><td>POST</td><td>/api/generate-roadmap</td><td>Send user profile → get AI roadmap</td></tr>
+  </table>
+
+  <h3>POST /api/generate-roadmap — Request Body</h3>
+  <pre><code>{
+  "email": "you@example.com",
+  "careerGoal": "Become a Full-Stack Developer",
+  "domain": "Software Development",
+  "skillLevel": "Beginner",
+  "programmingSkills": "Python, HTML/CSS",
+  "studyHours": "7-10 hours",
+  "learningStyle": "Hands-on Projects"
+}</code></pre>
+
+  
+  <h2>Tech Stack</h2>
+  <p>
+    <span class="badge">React 18</span>
+    <span class="badge">React Router v6</span>
+    <span class="badge">Axios</span>
+    <span class="badge badge-blue">Flask 3</span>
+    <span class="badge badge-blue">Flask-CORS</span>
+    <span class="badge badge-green">IBM watsonx.ai Runtime</span>
+    <span class="badge badge-yellow">Granite / Llama 3</span>
+  </p>
+  <br />
+  <p>No database · No JWT · No passwords · localStorage for session</p>
+
+<footer>Made with IBM Bob</footer>
+</div>
+</body>
+</html>
